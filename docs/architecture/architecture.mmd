@@ -1,0 +1,8 @@
+flowchart LR
+  U[Заявитель / оператор / исполнитель / администратор] --> UI[Presentation: веб-интерфейс]
+  UI --> C[Controller / API]
+  C --> S[Application Services]
+  S --> D[Domain: Request, Status, правила]
+  S --> R[Repository interfaces]
+  R --> DB[(Хранилище данных)]
+  S --> N[Адаптер уведомлений]

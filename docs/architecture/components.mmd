@@ -1,0 +1,36 @@
+flowchart TB
+  subgraph Presentation
+    Login[Экран входа]
+    List[Список и фильтры]
+    Form[Формы заявки]
+    Detail[Карточка и комментарии]
+    Controller[RequestController]
+  end
+  subgraph Application
+    RequestService[RequestService]
+    UserService[UserService]
+    Policy[AccessPolicy / StatusPolicy]
+  end
+  subgraph Domain
+    Request[Request]
+    User[User]
+    Comment[Comment]
+    Category[Category]
+  end
+  subgraph Data
+    RequestRepo[RequestRepository]
+    UserRepo[UserRepository]
+    Store[(Database)]
+  end
+  Login --> Controller
+  List --> Controller
+  Form --> Controller
+  Detail --> Controller
+  Controller --> RequestService
+  Controller --> UserService
+  RequestService --> Policy
+  RequestService --> Request
+  RequestService --> RequestRepo
+  UserService --> UserRepo
+  RequestRepo --> Store
+  UserRepo --> Store
