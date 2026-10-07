@@ -8,6 +8,3 @@
 - `docs/REPORT.md` — отчёт и AI-журнал по лабораторным 1–4.
 - `prototype/index.html` — интерактивный прототип пяти экранов.
 
-Откройте `prototype/index.html` в браузере. Это статический прототип: серверной авторизации и сохранения данных нет.
-
-Local development branch created for the lab workflow.
