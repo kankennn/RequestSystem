@@ -9,3 +9,5 @@
 - `prototype/index.html` — интерактивный прототип пяти экранов.
 
 Откройте `prototype/index.html` в браузере. Это статический прототип: серверной авторизации и сохранения данных нет.
+
+Local development branch created for the lab workflow.
