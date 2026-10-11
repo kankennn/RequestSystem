@@ -1,0 +1,53 @@
+### 1. Health check
+GET http://127.0.0.1:8000/health
+
+### 2. List seeded requests
+GET http://127.0.0.1:8000/requests
+
+### 3. Search
+GET http://127.0.0.1:8000/requests?q=монитор
+
+### 4. Filter by status
+GET http://127.0.0.1:8000/requests?status_id=1
+
+### 5. Filter by category and priority
+GET http://127.0.0.1:8000/requests?category_id=1&priority=high
+
+### 6. Get one
+GET http://127.0.0.1:8000/requests/1
+
+### 7. Users
+GET http://127.0.0.1:8000/users
+
+### 8. Statuses
+GET http://127.0.0.1:8000/statuses
+
+### 9. Categories
+GET http://127.0.0.1:8000/categories
+
+### 10. Create
+POST http://127.0.0.1:8000/requests
+Content-Type: application/json
+
+{"title":"Проблема входа","description":"Не открывается рабочий портал.","category_id":2,"requester_id":1,"priority":"normal"}
+
+### 11. Update priority
+PATCH http://127.0.0.1:8000/requests/1
+Content-Type: application/json
+
+{"priority":"high","description":"Обновлено: экран остаётся чёрным."}
+
+### 12. Change status (seeded request 1 is New; status 2 is In progress)
+PATCH http://127.0.0.1:8000/requests/1/status
+Content-Type: application/json
+
+{"status_id":2,"actor_id":2}
+
+### 13. Validation error example
+POST http://127.0.0.1:8000/requests
+Content-Type: application/json
+
+{"title":"x","description":"bad","category_id":1,"requester_id":1}
+
+### 14. Not found example
+GET http://127.0.0.1:8000/requests/999999

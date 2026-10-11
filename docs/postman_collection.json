@@ -1,0 +1,22 @@
+{
+  "info": {
+    "name": "Request System API - Labs 6-8",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key": "baseUrl", "value": "http://127.0.0.1:8000"}],
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":"{{baseUrl}}/health"}},
+    {"name":"List requests","request":{"method":"GET","url":"{{baseUrl}}/requests"}},
+    {"name":"Search requests","request":{"method":"GET","url":"{{baseUrl}}/requests?q=монитор"}},
+    {"name":"Filter requests","request":{"method":"GET","url":"{{baseUrl}}/requests?status_id=1&category_id=1"}},
+    {"name":"Get request","request":{"method":"GET","url":"{{baseUrl}}/requests/1"}},
+    {"name":"Users","request":{"method":"GET","url":"{{baseUrl}}/users"}},
+    {"name":"Statuses","request":{"method":"GET","url":"{{baseUrl}}/statuses"}},
+    {"name":"Categories","request":{"method":"GET","url":"{{baseUrl}}/categories"}},
+    {"name":"Create request","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"title\":\"Проблема входа\",\"description\":\"Не открывается рабочий портал.\",\"category_id\":2,\"requester_id\":1,\"priority\":\"normal\"}"},"url":"{{baseUrl}}/requests"}},
+    {"name":"Update request","request":{"method":"PATCH","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"priority\":\"high\",\"description\":\"Уточнённое описание проблемы.\"}"},"url":"{{baseUrl}}/requests/1"}},
+    {"name":"Change status","request":{"method":"PATCH","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"status_id\":2,\"actor_id\":2}"},"url":"{{baseUrl}}/requests/1/status"}},
+    {"name":"Validation error","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"title\":\"x\",\"description\":\"bad\",\"category_id\":1,\"requester_id\":1}"},"url":"{{baseUrl}}/requests"}},
+    {"name":"Not found","request":{"method":"GET","url":"{{baseUrl}}/requests/999999"}}
+  ]
+}

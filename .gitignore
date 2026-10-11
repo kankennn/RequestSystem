@@ -8,3 +8,7 @@ venv/
 *.sqlite
 *.db
 .env
+data/
+*.db
+*.sqlite
+docs/pdf/*-*.png
